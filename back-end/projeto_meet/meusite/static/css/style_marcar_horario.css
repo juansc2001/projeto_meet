@@ -1,0 +1,83 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    background-color: #6c757d;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  /* Conteúdo principal */
+  .main {
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .form-section {
+    text-align: center;
+  }
+  
+  .form-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  
+  .schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .schedule-form label {
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .schedule-form input, .schedule-form select, .submit-btn {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Rodapé */
+  .footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #343a40;
+    color: white;
+  }
+  
