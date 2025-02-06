@@ -1,3 +1,7 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,27 +19,14 @@
   <main class="main">
     <section class="form-section">
       <h2>Agendar Horário</h2>
-      <form action="#" method="POST" class="schedule-form">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" placeholder="Seu nome" required>
-
-        <label for="service">Serviço:</label>
-        <select id="service" name="service" required>
-          <option value="" disabled selected>Selecione o serviço</option>
-          <option value="corte">Corte de Cabelo</option>
-          <option value="trancas">Tranças</option>
-          <option value="barba">Barba</option>
-        </select>
-
-        <label for="date">Data:</label>
-        <input type="date" id="date" name="date" required>
-
-        <label for="time">Horário:</label>
-        <input type="time" id="time" name="time" required>
-
-        <button type="submit" class="submit-btn">Agendar</button>
+      <form method="POST" class="schedule-form">
+        {% csrf_token %}
+        {{ formulario_agendamento}}
+        
+      <button type="submit" class="submit-btn">Agendar</button>
       </form>
     </section>
+
   </main>
 
   <footer class="footer">
