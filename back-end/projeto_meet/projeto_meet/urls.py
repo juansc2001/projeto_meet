@@ -26,5 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('marcar_horario.html/', pag_marcar),
-    path('agendado.html/',agendado)
+    path('agendado.html/',agendado),
 ]
