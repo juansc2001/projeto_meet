@@ -1,15 +1,18 @@
-from .models import agenda
+from .models import agenda,db_servico
 from django import forms
 
 class formulario_marcar_horario(forms.ModelForm):
     
+    servico_disponiveis = db_servico.objects.all()
     SERVICOS_CHOICES = [
         ('', 'Selecione o serviço'),  # Opção padrão (desabilitada)
-        ('corte', 'Corte de Cabelo'),
-        ('trancas', 'Tranças'),
-        ('barba', 'Barba'),
+        
+        ('corte', 'corte de cabelo')
     ]
-     
+    for dado in servico_disponiveis:
+        SERVICOS_CHOICES.append((dado.id, dado.servico))
+
+
     servico = forms.ChoiceField(
         choices=SERVICOS_CHOICES,
         widget=forms.Select(attrs={'class': 'form-control', 'required': True})
@@ -19,14 +22,14 @@ class formulario_marcar_horario(forms.ModelForm):
     class Meta: 
 
         model = agenda
-
-        fields = ['nome','servico','data_marcada','horario_marcado']
+        fields = ['nome','servico','data_marcada','horario_marcado','horas_ocupadas']
 
         labels = {
             'nome': 'nome:',
             'servico': 'serviço:',
             'data_marcada' : 'data:',
-            'horario_marcado' : 'hora:',
+            'horario_marcado' : 'horario de inicio:',
+            'horas_ocupadas':'quantas horas o serviço vai levar',
         }
 
         widgets = {
@@ -34,3 +37,20 @@ class formulario_marcar_horario(forms.ModelForm):
             'data_marcada': forms.DateInput (attrs={'type':'date', 'class':'form-control'}),
             'horario_marcado' : forms.TimeInput(attrs={'type':'time', 'class':'form-control'}),
         }
+
+
+
+
+
+
+
+
+class formulario_serviços (forms.ModelForm):
+    class Meta:
+        model = db_servico
+        fields = ['servico','total_horas']
+
+    labels={
+        'servico':'serviço prestado: ',
+        'total_horas':'duração do serviço: ',
+    }

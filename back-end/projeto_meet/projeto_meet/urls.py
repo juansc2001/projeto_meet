@@ -19,12 +19,13 @@ from django.urls import path
 
 from meusite.views import home
 from meusite.views import pag_marcar
-from meusite.views import agendado
+from meusite.views import agendado,configurar_servico
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home, name='home'),
     path('marcar_horario.html/', pag_marcar),
     path('agendado.html/',agendado),
+    path('configurar_servico', configurar_servico, name='pag_servico'),
 ]
