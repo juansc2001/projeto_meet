@@ -2,11 +2,16 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import formulario_marcar_horario, formulario_serviços
 from .models import agenda, db_servico
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 # Create your views here.
 
 def home(request):
+    hoje = date.today()
+    agendamentos_expirados = agenda.objects.filter(data_marcada__lt=hoje)
+    quantidade = agendamentos_expirados.count()
+    agendamentos_expirados.delete()
+
     return render(request,'index.html')
 
 def pag_marcar(request):

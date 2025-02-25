@@ -15,7 +15,6 @@ class agenda(models.Model):
     data_marcada = models.DateField(blank=False, null=False)
     horario_marcado = models.TimeField(blank=False, null=False)
     horas_ocupadas = models.IntegerField(blank=False, null=False, default=1)
-
     data_criacao = models.DateField(auto_now_add=True)
     
     def __str__(self):
